@@ -6,7 +6,7 @@
 /*   By: pcapalan <pcapalan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:09:19 by pcapalan          #+#    #+#             */
-/*   Updated: 2025/03/17 15:00:13 by pcapalan         ###   ########.fr       */
+/*   Updated: 2025/03/17 21:06:04 by pcapalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void    *monitor_dead(void *argv)
         while (i < data->num_philo)
         {
             usleep(1000);
-            if (get_time_now() - (data->philos[i].last_meal_time + 3) >= data->time_to_die)
+            if (get_time_now() - (data->philos[i].last_meal_time) >= data->time_to_die)
             {
-                if ((data->philos[i].eating != data->time_to_eat))
+                if ((data->philos[i].eating != data->must_eat_count))
                 {
                     ft_print_status(&data->philos[i], "died");
                     data->status = 1;

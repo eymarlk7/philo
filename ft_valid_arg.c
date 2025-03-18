@@ -48,12 +48,12 @@ int check_status_and_write(t_data *data, int argc, char **argv)
     
     check_val = ft_ini_data(data, argc, argv);
     if (check_val == 1)
-        return(printf("Error: Found an invalid character\n"), -1);
+        return(printf("Error: Invalid arguments\n"), -1);
     else if (check_val == 2)
         return(printf("Error: Invalid number of arguments\n"), -1);
     else if (check_val == 3)
         return(printf("Error: Number of philosophers is not valid\n"), -1);
-    else if (check_val == 4)
-        return(printf("Error: Time to die is not valid\n"), -1);
+    else if (check_val == 4 || check_val == 5)
+        return(printf("Error: Invalid arguments\n"), -1);
     return (0);
 }

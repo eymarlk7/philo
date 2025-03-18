@@ -6,7 +6,7 @@
 /*   By: pcapalan <pcapalan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:10:04 by pcapalan          #+#    #+#             */
-/*   Updated: 2025/03/17 12:24:21 by pcapalan         ###   ########.fr       */
+/*   Updated: 2025/03/17 21:10:29 by pcapalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,20 @@ int ft_init_philo_data(t_data *data, int argc, char **argv)
     if (argc < 5 || argc > 6)
         return (2);
     data->num_philo = ft_atoi(argv[1]);
+    data->simulation_end = ft_atoi(argv[1]);
     if (data->num_philo > 200 || data->num_philo <= 0)
         return (3);
     data->time_to_die = ft_atoi(argv[2]);
-    if (data->time_to_die <= 0)
-        return (4);
     data->time_to_eat = ft_atoi(argv[3]);
     data->time_to_sleep = ft_atoi(argv[4]);
+    if (data->time_to_die <= 0 || data->time_to_eat <= 0 || data->time_to_sleep <= 0)
+        return (4);
     if (argc == 6)
+    {
         data->must_eat_count = ft_atoi(argv[5]);
+        if (data->must_eat_count <= 0)
+            return (5);
+    }
     else
         data->must_eat_count = 0;
     data->status = 0;
